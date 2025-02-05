@@ -7,9 +7,14 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Bevanda {
+public class Bevanda implements ElementoMenu {
 
     private String nomeBevanda;
-    private int calorie;
     private double prezzo;
+    private int calorie;
+
+    @Override
+    public String getNome() {
+        return nomeBevanda;
+    }
 }

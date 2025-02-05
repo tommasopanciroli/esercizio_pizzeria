@@ -4,45 +4,36 @@ import it.epicode.esercizio_pizzeria.entities.Bevanda;
 import it.epicode.esercizio_pizzeria.entities.Menu;
 import it.epicode.esercizio_pizzeria.entities.Pizza;
 import it.epicode.esercizio_pizzeria.entities.Topping;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+
+import java.util.List;
+
 @Configuration
+@RequiredArgsConstructor
 public class MenuConfig {
 
-    //Pizze
-    @Autowired
-    private Pizza pizzaMargherita;
-    @Autowired
-    private Pizza pizzaDiavola;
-    @Autowired
-    private Pizza pizzaNapoletana;
-
-    //Bevande
-    @Autowired
-    private Bevanda cocaCola;
-    @Autowired
-    private Bevanda sprite;
-    @Autowired
-    private Bevanda fanta;
-
-    //Topping
-    @Autowired
-    private Topping mozzarella;
-    @Autowired
-    private Topping pomodoro;
-    @Autowired
-    private Topping funghi;
-    @Autowired
-    private Topping salame;
-    @Autowired
-    private Topping prosciutto;
+    private final Bevanda cocaCola;
+    private final Bevanda sprite;
+    private final Bevanda fanta;
+    private final Pizza pizzaMargherita;
+    private final Pizza pizzaDiavola;
+    private final Pizza pizzaNapoletana;
+    private final Topping pomodoro;
+    private final Topping mozzarella;
+    private final Topping salame;
+    private final Topping funghi;
+    private final Topping prosciutto;
 
     @Bean
-    public Menu menu() {
-        Menu menu = new Menu();
-
-        return menu;
+    public Menu creaMenu() {
+        Menu m = new Menu();
+        m.setNomeMenu("Menu Pranzo");
+        m.setElementiMenu(List.of(cocaCola, sprite, fanta, pizzaNapoletana, pizzaMargherita, pizzaDiavola, mozzarella, pomodoro, prosciutto, funghi, salame));
+        return m;
     }
+
 }
