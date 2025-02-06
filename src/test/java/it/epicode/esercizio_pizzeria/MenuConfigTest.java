@@ -17,7 +17,7 @@ public class MenuConfigTest {
     @Test
     @DisplayName("Test valori inseriti corretti")
     public void testMenuConfig(){
-        assertEquals("Menu pranzo", m.getNomeMenu());
+        assertEquals("Menu Pranzo", m.getNomeMenu());
         assertEquals(11,m.getElementiMenu().size());
     }
 }
